@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <ul>
+        <li v-for="item in names">{{item}}</li>
+    </ul>
+    <ul>
+        <li v-for="(item,index) in names">{{index+1}}、{{item}}</li>
+    </ul>
+    <ul>
+        <li v-for="item in info">{{item}}</li>
+    </ul>
+    <ul>
+        <li v-for="(value,key) in info">{{key}}--{{value}}</li>
+    </ul>
+</div>
+<script src="../js/vue.js"></script>
+<script>
+    const app =new Vue({
+        el:'#app',
+        data:{
+            names:["张三","李四","王五"],
+            info:{
+                name:'张三',
+                age:10,
+                sex:'男'
+            }
+        }
+    })
+</script>
+
+</body>
+</html>

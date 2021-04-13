@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <!--输入的时候不会立刻改变，失焦的时候改变-->
+    <input type="text" v-model.lazy="message">
+    <h2>{{message}}</h2>
+    <!--只能输入数字-->
+    <input type="text" v-model.number="age">
+    <h2>{{age}}--{{typeof age}}</h2>
+    <!--去掉空格-->
+    <input type="text" v-model.trim="name">
+    <h2>您输入的字符{{name}}</h2>
+</div>
+<script src="../js/vue.js"></script>
+<script>
+    const app =new Vue({
+        el:'#app',
+        data:{
+            message:"测试",
+            age:10,
+            name:""
+        }
+    })
+</script>
+
+</body>
+</html>

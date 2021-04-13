@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <ul>
+        <li v-for="item in names">{{item}}</li>
+    </ul>
+    <button @click="btnClick">按钮</button>
+    <button @click="pushClick">push</button>
+    <button @click="popClick">pop</button>
+    <button @click="shiftClick">shift</button>
+    <button @click="unshiftClick">unshift</button>
+    <button @click="spliceClick">splice</button>
+    <button @click="sortClick">sort</button>
+    <button @click="reverseClick">reverse</button>
+</div>
+<script src="../js/vue.js"></script>
+<script>
+    const app =new Vue({
+        el:'#app',
+        data:{
+            names:["张三","李四","王五"]
+        },
+        methods:{
+            btnClick(){
+                /*不是响应式的*/
+                this.names[0]="ssss";
+            },
+            pushClick(){
+                this.names.push("赵六");
+            },
+            popClick(){
+                /*删除最后一个元素*/
+                this.names.pop();
+            },
+            shiftClick(){
+                /*删除第一个元素*/
+                this.names.shift();
+            },
+            unshiftClick(){
+                this.names.unshift("孙二");
+            },
+            spliceClick(){
+                /*删除元素*/
+                this.names.splice(2,1);
+                /*删除一个元素,并添加一个元素*/
+                this.names.splice(1,1,'小三');
+            },
+            sortClick(){
+                this.names.sort();
+            },
+            reverseClick(){
+                this.names.reverse();
+            },
+
+        }
+    })
+</script>
+
+</body>
+</html>

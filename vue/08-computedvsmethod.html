@@ -1,0 +1,46 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+    <div id="app">
+        <h2>{{message}}</h2>
+        <h2>{{age}}</h2>
+        <h2>{{getFullMessage()}}</h2>
+        <h2>{{getFullMessage()}}</h2>
+        <h2>{{fullMessage}}</h2>
+        <h2>{{fullMessage}}</h2>
+
+
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+        const app =new Vue({
+            el:'#app',
+            data:{
+                message:"测试",
+                age:10,
+                books:[
+                    {name:'编程之美',price:10},
+                    {name:'数据结构',price:20}
+                ]
+            },
+            computed:{
+                fullMessage:function(){
+                    console.log("computed")
+                    return this.message+this.age;
+                }
+            },
+            methods:{
+                getFullMessage:function(){
+                    console.log("methods")
+                    return this.message+this.age;
+                }
+            }
+        })
+    </script>
+
+    </body>
+    </html>

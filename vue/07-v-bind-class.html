@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<style>
+    .activeClass{
+        color:red;
+    }
+</style>
+<div id="app">
+    <h2 class="activeClass">{{message}}</h2>
+    <h2 :class="active">{{message}}</h2>
+    <h2 :class="{activeClass:true}">{{message}}</h2>
+    <h2 :class="{activeClass:isActive}">{{message}}</h2>
+    <button @click="btnClick">改变颜色</button>
+    <h2 :class="getClass()">{{message}}</h2>
+</div>
+<script src="../js/vue.js"></script>
+<script>
+    const app =new Vue({
+        el:'#app',
+        data:{
+            message:"测试",
+            active:'activeClass',
+            isActive:true
+        },
+        methods:{
+            btnClick:function(){
+                this.isActive=!this.isActive;
+            },
+            getClass:function(){
+                return {activeClass:this.isActive};
+            }
+        }
+    })
+</script>
+
+</body>
+</html>

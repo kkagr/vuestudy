@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    const nums=[10,20,100,200,400,40,50]
+    //1.需求，取出所有小于100的数字
+    let newNums=[]
+    for(let n of nums){
+        if(n<100){
+            newNums.push(n)
+        }
+    }
+    console.log(newNums)
+    //2.需求，将所有小于100的数字乘以2
+    let new2Nums=[]
+    for(let n of newNums){
+        new2Nums.push(n*2)
+    }
+    console.log(new2Nums)
+    /*filter回调函数必须返回boolean值,放返回true,函数内部会自动将这次回调加入到新的数组中,返回false,会过滤这次结果*/
+    let newNums1= nums.filter(function (n) {
+        return n<100
+    })
+    console.log(newNums1)
+    let new2Nums1 = newNums1.map(function (n) {
+        return n*2
+    })
+    console.log(new2Nums1)
+    let total = new2Nums1.reduce(function (prevalue,n) {
+        return prevalue+n
+    },0)
+    console.log(total)
+</script>
+
+</body>
+</html>
